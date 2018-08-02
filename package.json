@@ -26,6 +26,7 @@
   "dependencies": {
     "lodash.merge": "^4.6.1",
     "stellar-sdk": "^0.10.1",
+    "stream-array": "^1.1.2",
     "wait-queue": "^1.1.0"
   }
 }
