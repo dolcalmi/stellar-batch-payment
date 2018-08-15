@@ -13,7 +13,8 @@
   "keywords": [
     "stellar",
     "batch",
-    "payment"
+    "payment",
+    "payments"
   ],
   "devDependencies": {
     "eslint": "^5.2.0",
