@@ -26,6 +26,7 @@
   "dependencies": {
     "csvtojson": "^2.0.8",
     "lodash.merge": "^4.6.1",
+    "lodash.uniqby": "^4.7.0",
     "stellar-sdk": "^0.10.1",
     "stream-array": "^1.1.2",
     "wait-queue": "^1.1.0"
