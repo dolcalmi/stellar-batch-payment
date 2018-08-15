@@ -63,3 +63,5 @@ typings/
 .npm-debug.log
 tags
 test.js
+test.csv
+test.output.csv
