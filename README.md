@@ -13,7 +13,7 @@ Install the package with:
 
 ## Usage
 
-The library needs to be configured with fee payer accounts (max 50) or the source account will be used as a fee payer.
+The library needs to be configured with fee payer accounts (max 50) or the signers will be used as a fee payers.
 
 ``` js
 const BatchPayment = require('stellar-batch-payment');
@@ -48,9 +48,11 @@ Default value: `"https://horizon.stellar.org"`
 The csv file must have the next headers:
 
 ```
-amount, destination, asset.code, asset.issuer
+amount, destination, asset.code, asset.issuer, memo.value, memo.type
 ```
-if the payment is XLM then the issuer can be empty
+- destination can be Ed25519 public key or federated addresses
+- if the payment is XLM then the issuer can be empty
+- memo fields are optional
 
 ``` js
 const stream = batchPayment.fromCsv(
@@ -60,15 +62,15 @@ const stream = batchPayment.fromCsv(
 );
 
 const outputStream = fs.createWriteStream('output.csv');
-outputStream.write(`transactionId, error, amount, destination, asset.code, asset.issuer`)
+outputStream.write(`transactionId, error, amount, destination, asset.code, asset.issuer, memo.value, memo.type`)
 
 stream.on('data', (item) => {
   const { items, transactionId, error } = item;
   let err = error || '';
   items.forEach((i) => {
-    const { amount, asset, destination } = i;
+    const { amount, asset, destination, memo } = i;
     outputStream.write('\r\n');
-    outputStream.write(`${transactionId}, ${err}, ${amount}, ${destination}, ${asset.code}, ${asset.issuer}`)
+    outputStream.write(`${transactionId}, ${err}, ${amount}, ${destination}, ${asset.code}, ${asset.issuer}, ${JSON.stringify(memo && (memo.value || memo || ''))}, ${memo && (memo.type || '')}`)
   });
 });
 ```
@@ -82,6 +84,7 @@ const payments = [];
 for (var i = 0; i < 10; i++) {
   payments.push({
     // asset: { code: 'XLM',  issuer: '' },
+    // memo: { type: 'text',  value: 'my memo' },
     asset: { code: 'MyAsset', issuer: 'GCN...S2K' },
     amount: 1,
     destination: 'GCD...FXP',
@@ -111,14 +114,15 @@ stream.on('data', (item) => {
   const { items, transactionId, error } = item;
   let err = error || '';
   items.forEach((i) => {
-    const { amount, asset, destination } = i;
-    console.log(`${transactionId}, ${err}, ${amount}, ${destination}, ${asset.code}, ${asset.issuer}`)
+    const { amount, asset, destination, memo } = i;
+    console.log(`${transactionId}, ${err}, ${amount}, ${destination}, ${asset.code}, ${asset.issuer}, ${JSON.stringify(memo && (memo.value || memo || ''))}, ${memo && (memo.type || '')}`)
   });
 });
 
 for (var i = 0; i < 1000; i++) {
   payments.push({
     // asset: { code: 'XLM',  issuer: '' },
+    // memo: { type: 'text',  value: 'my memo' },
     asset: { code: 'MyAsset', issuer: 'GCN...S2K' },
     amount: 1,
     destination: 'GCD...FXP',
