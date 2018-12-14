@@ -6,6 +6,7 @@ module.exports = {
     "chai-friendly"
   ],
   "rules": {
+    "no-undef": "off",
     "no-loop-func": "off",
     "no-sync": "off",
     "no-unused-expressions": 0,

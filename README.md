@@ -1,8 +1,10 @@
 # Stellar Batch Payment Library
 [![Version](https://img.shields.io/npm/v/stellar-batch-payment.svg)](https://www.npmjs.org/package/stellar-batch-payment)
+[![Build Status](https://api.travis-ci.org/dolcalmi/stellar-batch-payment.svg?branch=master)](https://travis-ci.org/dolcalmi/stellar-batch-payment)
 [![David](https://img.shields.io/david/dolcalmi/stellar-batch-payment.svg)](https://david-dm.org/dolcalmi/stellar-batch-payment)
 [![David](https://img.shields.io/david/dev/dolcalmi/stellar-batch-payment.svg)](https://david-dm.org/dolcalmi/stellar-batch-payment?type=dev)
 [![Try on RunKit](https://badge.runkitcdn.com/stellar-batch-payment.svg)](https://runkit.com/npm/stellar-batch-payment)
+[![Coveralls github](https://img.shields.io/coveralls/github/dolcalmi/stellar-batch-payment.svg)](https://coveralls.io/github/dolcalmi/stellar-batch-payment?branch=master)
 
 Batch payment library for [Stellar](https://www.stellar.org/)
 ## Installation

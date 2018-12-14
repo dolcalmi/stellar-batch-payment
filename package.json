@@ -17,12 +17,26 @@
     "payments"
   ],
   "devDependencies": {
+    "axios": "^0.18.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "coveralls": "^3.0.2",
     "eslint": "^5.10.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "sinon": "^7.2.2"
   },
   "scripts": {
+    "clean": "rm -rf ./.nyc_output ./node_modules/.cache ./coverage",
+    "coveralls": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "mocha": "nyc mocha",
+    "report": "nyc -r text -r lcov report",
+    "test": "npm run lint && npm run mocha"
   },
   "dependencies": {
     "csvtojson": "^2.0.8",
