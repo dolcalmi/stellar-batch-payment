@@ -88,7 +88,7 @@ for (var i = 0; i < 10; i++) {
     // asset: { code: 'XLM',  issuer: '' },
     // memo: { type: 'text',  value: 'my memo' },
     asset: { code: 'MyAsset', issuer: 'GCN...S2K' },
-    amount: 1,
+    amount: '1',
     destination: 'GCD...FXP',
   });
 }
@@ -126,7 +126,7 @@ for (var i = 0; i < 1000; i++) {
     // asset: { code: 'XLM',  issuer: '' },
     // memo: { type: 'text',  value: 'my memo' },
     asset: { code: 'MyAsset', issuer: 'GCN...S2K' },
-    amount: 1,
+    amount: '1',
     destination: 'GCD...FXP',
   });
 }
@@ -147,11 +147,11 @@ $ npm test
 Run a single test suite:
 
 ```bash
-$ npm run mocha -- test/Error.spec.js
+$ npm run mocha -- test/helpers/utils.spec.js
 ```
 
 Run a single test (case sensitive):
 
 ```bash
-$ npm run mocha -- test/Batch.spec.js --grep 'Pay from Array'
+$ npm run mocha -- test/helpers/utils.spec.js --grep 'resolveAddress'
 ```
