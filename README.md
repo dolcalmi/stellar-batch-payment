@@ -15,7 +15,7 @@ Install the package with:
 
 ## Usage
 
-The library needs to be configured with fee payer accounts (max 50) or the signers will be used as a fee payers.
+The library needs to be configured with fee payer accounts (max 50).
 
 ``` js
 const BatchPayment = require('stellar-batch-payment');
@@ -27,23 +27,25 @@ const batchPayment = new BatchPayment({
 
 ## Configuration
 
-All configuration parameters are optional.
-
 - **batchSize**\
 Number of payments per transaction.\
-Default value: `100`
+Default value: `100`\
+Required: false
 - **feePayersSecrets**\
 Array of fee payers secret keys .\
-Default value: `[]`
+Required: true
 - **useTestnet**\
 if true then the testnet will be used.\
-Default value: `true`
+Default value: `true`\
+Required: false
 - **testNetUri**\
 Testnet horizon uri.\
-Default value: `"https://horizon-testnet.stellar.org"`
+Default value: `"https://horizon-testnet.stellar.org"`\
+Required: false
 - **publicNetUri**\
 Public horizon uri.\
-Default value: `"https://horizon.stellar.org"`
+Default value: `"https://horizon.stellar.org"`\
+Required: false
 
 ### Batch payments from csv
 
