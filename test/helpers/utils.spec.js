@@ -86,6 +86,23 @@ describe('utils', function() {
 
   });
 
+  describe('hasValidMemoTextSize', function() {
+
+    it('should return true with valid memo size', function() {
+      expect(utils.hasValidMemoTextSize('valid memo')).to.equal(true);
+      expect(utils.hasValidMemoTextSize('esto es un memo de 28 bytes.')).to.equal(true);
+      expect(utils.hasValidMemoTextSize('a')).to.equal(true);
+      expect(utils.hasValidMemoTextSize(12354)).to.equal(true);
+    });
+
+    it('should return false with invalid memo size', function() {
+      expect(utils.hasValidMemoTextSize('esto es un memo con mas de 28 bytes.')).to.equal(false);
+      expect(utils.hasValidMemoTextSize('             ')).to.equal(false);
+      expect(utils.hasValidMemoTextSize('')).to.equal(false);
+      expect(utils.hasValidMemoTextSize(null)).to.equal(false);
+    });
+  });
+
   describe('isValidDestination', function() {
 
     it('should return true with valid destination', function() {

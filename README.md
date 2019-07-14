@@ -21,6 +21,8 @@ The library needs to be configured with fee payer accounts (max 50).
 const BatchPayment = require('stellar-batch-payment');
 
 const batchPayment = new BatchPayment({
+  defaultMemo: 'thx from batch payment lib',
+  fee: 101,
   feePayersSecrets: [ 'SDL...A2J', 'SFK...ABJ', ... ]
 });
 ```
@@ -31,20 +33,27 @@ const batchPayment = new BatchPayment({
 Number of payments per transaction.\
 Default value: `100`\
 Required: false
+- **defaultMemo**\
+Default value for payments without memo.\
+Required: false
+- **fee**\
+The max fee willing to pay per operation (in stroops) .\
+Default value: 100\
+Required: false
 - **feePayersSecrets**\
 Array of fee payers secret keys .\
 Required: true
-- **useTestnet**\
-if true then the testnet will be used.\
-Default value: `true`\
+- **publicNetUri**\
+Public horizon uri.\
+Default value: `"https://horizon.stellar.org"`\
 Required: false
 - **testNetUri**\
 Testnet horizon uri.\
 Default value: `"https://horizon-testnet.stellar.org"`\
 Required: false
-- **publicNetUri**\
-Public horizon uri.\
-Default value: `"https://horizon.stellar.org"`\
+- **useTestnet**\
+if true then the testnet will be used.\
+Default value: `true`\
 Required: false
 
 ### Batch payments from csv
