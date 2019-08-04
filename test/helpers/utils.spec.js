@@ -26,7 +26,7 @@ describe('utils', function() {
         }));
       utils.resolveAddress('bob*stellar.org', this.server)
         .then((d) => {
-          expect(d.destination).to.equal('GB5XVAABEQMY63WTHDQ5RXADGYF345VWMNPTN2GFUDZT57D57ZQTJ7PS');
+          expect(d.accountId).to.equal('GB5XVAABEQMY63WTHDQ5RXADGYF345VWMNPTN2GFUDZT57D57ZQTJ7PS');
           expect(d.memo).to.equal(undefined);
         })
         .finally(() => {
@@ -47,7 +47,7 @@ describe('utils', function() {
         }));
       utils.resolveAddress('bob*stellar.org', this.server)
         .then((d) => {
-          expect(d.destination).to.equal('GB5XVAABEQMY63WTHDQ5RXADGYF345VWMNPTN2GFUDZT57D57ZQTJ7PS');
+          expect(d.accountId).to.equal('GB5XVAABEQMY63WTHDQ5RXADGYF345VWMNPTN2GFUDZT57D57ZQTJ7PS');
           expect(d.memo.type).to.equal('text');
           expect(d.memo.value).to.equal('bob');
         })

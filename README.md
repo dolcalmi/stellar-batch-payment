@@ -75,15 +75,15 @@ const stream = batchPayment.fromCsv(
 );
 
 const outputStream = fs.createWriteStream('output.csv');
-outputStream.write(`transactionId, error, amount, destination, asset.code, asset.issuer, memo.value, memo.type`)
+outputStream.write(`transactionId, error, amount, accountId, destination, asset.code, asset.issuer, memo.value, memo.type`)
 
 stream.on('data', (item) => {
   const { items, transactionId, error } = item;
   let err = error || '';
   items.forEach((i) => {
-    const { amount, asset, destination, memo } = i;
+    const { amount, asset, accountId, destination, memo } = i;
     outputStream.write('\r\n');
-    outputStream.write(`${transactionId}, ${err}, ${amount}, ${destination}, ${asset.code}, ${asset.issuer}, ${JSON.stringify(memo && (memo.value || memo || ''))}, ${memo && (memo.type || '')}`)
+    outputStream.write(`${transactionId}, ${err}, ${amount}, ${accountId || ''}, ${destination}, ${asset.code}, ${asset.issuer}, ${JSON.stringify(memo && (memo.value || memo || ''))}, ${memo && (memo.type || '')}`)
   });
 });
 ```
@@ -127,8 +127,8 @@ stream.on('data', (item) => {
   const { items, transactionId, error } = item;
   let err = error || '';
   items.forEach((i) => {
-    const { amount, asset, destination, memo } = i;
-    console.log(`${transactionId}, ${err}, ${amount}, ${destination}, ${asset.code}, ${asset.issuer}, ${JSON.stringify(memo && (memo.value || memo || ''))}, ${memo && (memo.type || '')}`)
+    const { amount, asset, accountId, destination, memo } = i;
+    console.log(`${transactionId}, ${err}, ${amount}, ${accountId || ''}, ${destination}, ${asset.code}, ${asset.issuer}, ${JSON.stringify(memo && (memo.value || memo || ''))}, ${memo && (memo.type || '')}`)
   });
 });
 

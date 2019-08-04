@@ -22,12 +22,12 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "coveralls": "^3.0.5",
-    "eslint": "^6.0.1",
+    "eslint": "^6.1.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
-    "eslint-plugin-import": "^2.18.0",
-    "mocha": "^6.1.4",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.0",
     "nyc": "^14.1.1",
-    "sinon": "^7.3.2"
+    "sinon": "^7.4.0"
   },
   "scripts": {
     "clean": "rm -rf ./.nyc_output ./node_modules/.cache ./coverage",
@@ -41,10 +41,10 @@
   "dependencies": {
     "csvtojson": "^2.0.10",
     "debug": "^4.1.1",
-    "highland": "^2.13.4",
+    "highland": "^2.13.5",
     "lodash.merge": "^4.6.2",
     "lodash.uniqby": "^4.7.0",
-    "stellar-sdk": "^2.0.1",
+    "stellar-sdk": "^2.2.1",
     "wait-queue": "^1.1.1"
   }
 }
