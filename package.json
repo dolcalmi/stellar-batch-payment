@@ -1,6 +1,6 @@
 {
   "name": "stellar-batch-payment",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "stellar batch payment library",
   "main": "lib/index.js",
   "repository": "git@github.com:dolcalmi/stellar-batch-payment.git",
