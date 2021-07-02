@@ -44,7 +44,7 @@
     "highland": "^2.13.5",
     "lodash.merge": "^4.6.2",
     "lodash.uniqby": "^4.7.0",
-    "stellar-sdk": "^2.2.1",
+    "stellar-sdk": "^8.2.3",
     "wait-queue": "^1.1.1"
   }
 }
